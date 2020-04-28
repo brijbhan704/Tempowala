@@ -1,0 +1,2 @@
+[02-Nov-2019 06:34:28 UTC] PHP Fatal error:  Can't use function return value in write context in /home/techczyo/public_html/tempowala/app/Http/Controllers/v1/VehicleController.php on line 45
+[02-Nov-2019 06:35:27 UTC] PHP Fatal error:  Can't use function return value in write context in /home/techczyo/public_html/tempowala/app/Http/Controllers/v1/VehicleController.php on line 45

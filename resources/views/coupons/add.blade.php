@@ -1,0 +1,105 @@
+@extends('layout.app')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@section('content')
+<link href="{{ asset('/css/jquery.dm-uploader.min.css') }}" rel="stylesheet">
+<div class="right_col" role="main">
+@include('layout/flash')
+  <div class="col-md-12 col-xs-12">
+
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Add Coupon</h2>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <br>
+                <form class="form-horizontal form-label-left" action="{{ url('/') }}/coupons/add" method="POST">
+                  {{ csrf_field() }}
+
+                  
+                  <div class="form-group" style="float:left">
+                    <label for="content" class="col-sm-12 control-label">Title</label>
+                  </div>
+                  <div class="form-group">                        
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <input class="form-control" placeholder="Title" type="text" name="title">
+                    </div>
+                  </div>
+                             
+                   
+                  <div class="form-group" style="float:left">
+                  <label for="content" class="col-sm-12 control-label">code</label>
+                  </div>
+                  <div class="form-group">                        
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                  <input class="form-control" placeholder="Coupon code" maxlength="10" type="text" name="code">
+                  </div>
+                  </div> 
+                  
+                  <div class="form-group" style="float:left">
+                  <label for="content" class="col-sm-12 control-label">Discount</label>
+                  </div>
+                  <div class="form-group">                        
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                  <input class="form-control" placeholder="Discount" maxlength="5" type="text" name="discount">
+                  </div>
+                  </div> 
+                  
+                  <div class="form-group" style="float:left">
+                  <label for="content" class="col-sm-12 control-label">Publish Date</label>
+                  </div>
+                  <div class="form-group">                        
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    
+                        <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' name="publish_date" class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      
+                        </div>
+                  </div> 
+                  </div> 
+                  <div class="form-group" style="float:left">
+                  <label for="content" class="col-sm-12 control-label">Expiry Date</label>
+                  </div>
+                  <div class="form-group">                        
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    
+                        <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' name="expire_date" class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        </div>
+                    </div>
+                  </div> 
+
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                  <div class="col-md-12 col-sm-12 col-xs-12 ">
+                  <button type="button" class="btn btn-primary" onclick="location.href='{{ url('/') }}/coupons'">Cancel</button>
+                  <button type="reset" class="btn btn-primary">Reset</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+              </form>
+            
+          
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                   format:'YYYY-MM-DD' 
+                });
+                
+                $('#datetimepicker1').datetimepicker({
+                   format:'YYYY-MM-DD' 
+                });
+            });
+        </script>
+@endsection
